@@ -8,7 +8,7 @@
         <!--Search View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="SearchViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="SearchViewController" customModule="StoreSearch" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,9 +16,41 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Xcf-OW-l2L">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="5du-p7-GdE"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="o2v-Cq-afE"/>
+                                </connections>
+                            </tableView>
+                            <searchBar contentMode="redraw" placeholder="App name, artist, song, album, e-book" translatesAutoresizingMaskIntoConstraints="NO" id="IOK-Xd-Q5W">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <animations/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="U2U-1g-Y3f"/>
+                                </connections>
+                            </searchBar>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="IOK-Xd-Q5W" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="2cl-4I-YkK"/>
+                            <constraint firstItem="Xcf-OW-l2L" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="G0C-1X-n7a"/>
+                            <constraint firstAttribute="trailing" secondItem="Xcf-OW-l2L" secondAttribute="trailing" id="N3J-Gc-Hkm"/>
+                            <constraint firstItem="Xcf-OW-l2L" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="SM9-PT-ngB"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Xcf-OW-l2L" secondAttribute="bottom" id="cNB-I0-VV3"/>
+                            <constraint firstAttribute="trailing" secondItem="IOK-Xd-Q5W" secondAttribute="trailing" id="o4l-RB-mhs"/>
+                            <constraint firstItem="IOK-Xd-Q5W" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="uD2-cb-9If"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="searchBar" destination="IOK-Xd-Q5W" id="zoL-we-q4x"/>
+                        <outlet property="tableView" destination="Xcf-OW-l2L" id="ZbQ-Oh-ox0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
