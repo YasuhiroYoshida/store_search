@@ -55,15 +55,6 @@ class SearchViewController: UIViewController {
     return url!
   }
 
-  func performStoreRequestWithURL(url: NSURL) -> String? {
-    do {
-      return try String(contentsOfURL: url, encoding: NSUTF8StringEncoding)
-    } catch {
-      print("Download error: \(error)")
-      return nil
-    }
-  }
-
   func showNetworkError() {
 
     let alert = UIAlertController(
@@ -215,28 +206,38 @@ extension SearchViewController: UISearchBarDelegate {
       hasSearched = true
       searchResults = [SearchResult]()
 
-      let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+      let url = urlWithSeachText(searchBar.text!)
 
-      dispatch_async(queue) {
-        let url = self.urlWithSeachText(searchBar.text!)
+      let session = NSURLSession.sharedSession()
 
-        if let jsonString = self.performStoreRequestWithURL(url),
-          let dictionary = self.parseJSON(jsonString) {
+      let dataTask = session.dataTaskWithURL(url, completionHandler: {data, response, error in
+        if let error = error {
+          print("Failure! \(error)")
+        } else if let httpResponse = response as? NSHTTPURLResponse
+          where httpResponse.statusCode == 200 {
 
-          self.searchResults = self.parseDictionary(dictionary)
-          self.searchResults.sortInPlace(<)
+            if let data = data, dictionary = self.parseJSON(data) {
+              self.searchResults = self.parseDictionary(dictionary)
+              self.searchResults.sortInPlace(<)
 
-          dispatch_async(dispatch_get_main_queue()) {
-            self.isLoading = false
-            self.tableView.reloadData()
+              dispatch_async(dispatch_get_main_queue()) {
+              self.isLoading = false
+              self.tableView.reloadData()
+            }
           }
-          return
+        } else {
+          print("Failure! \(response!)")
         }
 
         dispatch_async(dispatch_get_main_queue()) {
+          self.hasSearched = false
+          self.isLoading = false
+          self.tableView.reloadData()
           self.showNetworkError()
         }
-      }
+      })
+
+      dataTask.resume()
     }
   }
 
@@ -244,10 +245,7 @@ extension SearchViewController: UISearchBarDelegate {
     return .TopAttached
   }
 
-  func parseJSON(jsonString: String) -> [String: AnyObject]? {
-
-    guard let data = jsonString.dataUsingEncoding(NSUTF8StringEncoding)
-      else { return nil}
+  func parseJSON(data: NSData) -> [String: AnyObject]? {
 
     do {
       return try NSJSONSerialization.JSONObjectWithData(data, options: []) as? [String: AnyObject]
