@@ -57,6 +57,8 @@ class DetailViewController: UIViewController {
     if searchResult != nil {
       updateUI()
     }
+
+    view.backgroundColor = UIColor.clearColor()
   }
 
   override func didReceiveMemoryWarning() {
@@ -109,6 +111,14 @@ extension DetailViewController: UIViewControllerTransitioningDelegate {
   func presentationControllerForPresentedViewController(presented: UIViewController, presentingViewController presenting: UIViewController, sourceViewController source: UIViewController) -> UIPresentationController? {
     return DimmingPresentaionController(presentedViewController: presented, presentingViewController: presenting)
   }
+
+  func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    return BounceAnimationController()
+  }
+
+  func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    return SlideOutAnimationController()
+  }
 }
 
 extension DetailViewController: UIGestureRecognizerDelegate {
@@ -116,7 +126,4 @@ extension DetailViewController: UIGestureRecognizerDelegate {
   func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
     return (touch.view === self.view)
   }
-
 }
-
-
