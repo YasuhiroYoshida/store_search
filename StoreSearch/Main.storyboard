@@ -94,9 +94,29 @@
                     <view key="view" contentMode="scaleToFill" id="QFA-4o-6xd">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qtz-8J-AEf">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <animations/>
+                                <connections>
+                                    <outlet property="delegate" destination="hHP-h1-o4g" id="aeS-Wu-ACU"/>
+                                </connections>
+                            </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="pr4-3i-7fF">
+                                <rect key="frame" x="0.0" y="0.0" width="39" height="37"/>
+                                <animations/>
+                                <connections>
+                                    <action selector="pageChanged:" destination="hHP-h1-o4g" eventType="valueChanged" id="Wqo-37-sBZ"/>
+                                </connections>
+                            </pageControl>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <connections>
+                        <outlet property="pageControl" destination="pr4-3i-7fF" id="WCL-Dr-jgE"/>
+                        <outlet property="scrollView" destination="qtz-8J-AEf" id="qXn-ty-opV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FIW-9B-pqn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
