@@ -20,6 +20,7 @@ class SearchViewController: UIViewController {
   var hasSearched = false
   var isLoading = false
   var dataTask: NSURLSessionDataTask?
+  var landscapeViewController: LandscapeViewController?
 
   @IBOutlet weak var searchBar: UISearchBar!
   @IBOutlet weak var tableView: UITableView!
@@ -27,6 +28,10 @@ class SearchViewController: UIViewController {
 
   @IBAction func segmentChanged(sender: UISegmentedControl) {
     performSearch()
+  }
+
+  deinit {
+    print("deinit \(self)")
   }
   
   override func viewDidLoad() {
@@ -61,18 +66,29 @@ class SearchViewController: UIViewController {
     }
   }
 
+  override func willTransitionToTraitCollection(newCollection: UITraitCollection, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+    super.willTransitionToTraitCollection(newCollection, withTransitionCoordinator: coordinator)
+
+    switch newCollection.verticalSizeClass {
+    case .Compact:
+      showLandscapeViewWithCoordinator(coordinator)
+    case .Regular, .Unspecified:
+      hideLandscapeViewWithCoordiantor(coordinator)
+    }
+  }
+
   func urlWithSeachText(searchText: String, category: Int) -> NSURL {
 
     let entityName: String
     switch category {
-      case 1:
-        entityName = "musicTrack"
-      case 2:
-        entityName = "software"
-      case 3:
-        entityName = "ebook"
-      default:
-        entityName = ""
+    case 1:
+      entityName = "musicTrack"
+    case 2:
+      entityName = "software"
+    case 3:
+      entityName = "ebook"
+    default:
+      entityName = ""
     }
 
     let escapedSearchText = searchText.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
@@ -113,14 +129,14 @@ class SearchViewController: UIViewController {
 
         if let wrapperType = resultDict["wrapperType"] as? String {
           switch wrapperType {
-            case "track":
-              searchResult = parseTrack(resultDict)
-            case "audiobook":
-              searchResult = parseAudioBook(resultDict)
-            case "software":
-              searchResult = parseSoftware(resultDict)
-            default:
-              break
+          case "track":
+            searchResult = parseTrack(resultDict)
+          case "audiobook":
+            searchResult = parseAudioBook(resultDict)
+          case "software":
+            searchResult = parseSoftware(resultDict)
+          default:
+            break
           }
         } else if let kind = resultDict["kind"] as? String
           where kind == "ebook" {
@@ -219,6 +235,45 @@ class SearchViewController: UIViewController {
     return searchResult
   }
 
+  func showLandscapeViewWithCoordinator(coordinator: UIViewControllerTransitionCoordinator){
+
+    precondition(landscapeViewController == nil)
+
+    landscapeViewController = storyboard!.instantiateViewControllerWithIdentifier("LandscapeViewController") as? LandscapeViewController
+
+    if let controller = landscapeViewController {
+      controller.view.frame = view.bounds
+      controller.view.alpha = 0
+
+      view.addSubview(controller.view)
+      addChildViewController(controller)
+
+      coordinator.animateAlongsideTransition({ _ in
+        controller.view.alpha = 1
+        self.searchBar.resignFirstResponder()
+        if self.presentedViewController != nil {
+          self.dismissViewControllerAnimated(true, completion: nil)
+        }
+      }, completion: { _ in
+        controller.didMoveToParentViewController(self)
+      })
+    }
+  }
+
+  func hideLandscapeViewWithCoordiantor(coordinator: UIViewControllerTransitionCoordinator) {
+
+    if let controller = landscapeViewController {
+      controller.willMoveToParentViewController(nil)
+
+      coordinator.animateAlongsideTransition({ _ in
+        controller.view.alpha = 0
+      }, completion: { _ in
+        controller.view.removeFromSuperview()
+        controller.removeFromParentViewController()
+        self.landscapeViewController = nil
+      })
+    }
+  }
 }
 
 extension SearchViewController: UISearchBarDelegate {

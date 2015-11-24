@@ -83,6 +83,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
+        <!--Landscape View Controller-->
+        <scene sceneID="yrm-3B-fkY">
+            <objects>
+                <viewController storyboardIdentifier="LandscapeViewController" id="hHP-h1-o4g" customClass="LandscapeViewController" customModule="StoreSearch" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yLI-VX-RUl"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZQb-4w-v1g"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QFA-4o-6xd">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FIW-9B-pqn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="511" y="1613"/>
+        </scene>
         <!--Detail View Controller-->
         <scene sceneID="9JR-3s-iJK">
             <objects>
@@ -223,7 +242,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yc0-wE-oux" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1043" y="229"/>
+            <point key="canvasLocation" x="1184" y="889"/>
         </scene>
     </scenes>
     <resources>

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E2392961C04214C00EFBFFB /* LandscapeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2392951C04214C00EFBFFB /* LandscapeViewController.swift */; };
+		0E2392981C04505800EFBFFB /* FadeOutAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2392971C04505800EFBFFB /* FadeOutAnimationController.swift */; };
 		0E4F46691C034073009081F6 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4F46681C034073009081F6 /* GradientView.swift */; };
 		0E4F466B1C034E7B009081F6 /* BounceAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4F466A1C034E7B009081F6 /* BounceAnimationController.swift */; };
 		0E4F466D1C0359D6009081F6 /* SlideOutAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4F466C1C0359D6009081F6 /* SlideOutAnimationController.swift */; };
@@ -25,6 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E2392951C04214C00EFBFFB /* LandscapeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandscapeViewController.swift; sourceTree = "<group>"; };
+		0E2392971C04505800EFBFFB /* FadeOutAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FadeOutAnimationController.swift; sourceTree = "<group>"; };
 		0E4F46681C034073009081F6 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		0E4F466A1C034E7B009081F6 /* BounceAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BounceAnimationController.swift; sourceTree = "<group>"; };
 		0E4F466C1C0359D6009081F6 /* SlideOutAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideOutAnimationController.swift; sourceTree = "<group>"; };
@@ -58,6 +62,7 @@
 		0EE8F2401BF2176D003AF6E3 = {
 			isa = PBXGroup;
 			children = (
+				0E2392971C04505800EFBFFB /* FadeOutAnimationController.swift */,
 				0EE8F24B1BF2176D003AF6E3 /* StoreSearch */,
 				0EE8F24A1BF2176D003AF6E3 /* Products */,
 			);
@@ -79,12 +84,13 @@
 				0EE8F24C1BF2176D003AF6E3 /* AppDelegate.swift */,
 				0E4F466A1C034E7B009081F6 /* BounceAnimationController.swift */,
 				0ECC85E01C01D99C002BED09 /* DetailViewController.swift */,
-				0E4F466C1C0359D6009081F6 /* SlideOutAnimationController.swift */,
 				0ECC85E21C01DFE5002BED09 /* DimmingPresentationController.swift */,
 				0E4F46681C034073009081F6 /* GradientView.swift */,
+				0E2392951C04214C00EFBFFB /* LandscapeViewController.swift */,
 				0E5D06B11BF8CE4F0032AED4 /* SearchResult.swift */,
 				0E5D06AF1BF8CDFE0032AED4 /* SearchResultCell.swift */,
 				0EE8F24E1BF2176D003AF6E3 /* SearchViewController.swift */,
+				0E4F466C1C0359D6009081F6 /* SlideOutAnimationController.swift */,
 				0E71BE0F1C01AE49000DDCA3 /* UIImageView+DownloadImage.swift */,
 				0EFCB84E1BFAF44900A4C388 /* Assets.xcassets */,
 				0ED19FE91C00911500A8FB67 /* LoadingCell.xib */,
@@ -170,9 +176,11 @@
 			files = (
 				0EE8F24F1BF2176D003AF6E3 /* SearchViewController.swift in Sources */,
 				0ECC85E31C01DFE5002BED09 /* DimmingPresentationController.swift in Sources */,
+				0E2392981C04505800EFBFFB /* FadeOutAnimationController.swift in Sources */,
 				0E5D06B01BF8CDFE0032AED4 /* SearchResultCell.swift in Sources */,
 				0EE8F24D1BF2176D003AF6E3 /* AppDelegate.swift in Sources */,
 				0E4F466B1C034E7B009081F6 /* BounceAnimationController.swift in Sources */,
+				0E2392961C04214C00EFBFFB /* LandscapeViewController.swift in Sources */,
 				0ECC85E11C01D99C002BED09 /* DetailViewController.swift in Sources */,
 				0E5D06B21BF8CE4F0032AED4 /* SearchResult.swift in Sources */,
 				0E4F46691C034073009081F6 /* GradientView.swift in Sources */,
