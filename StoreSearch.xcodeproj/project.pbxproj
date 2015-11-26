@@ -34,11 +34,11 @@
 		0E4F466A1C034E7B009081F6 /* BounceAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BounceAnimationController.swift; sourceTree = "<group>"; };
 		0E4F466C1C0359D6009081F6 /* SlideOutAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideOutAnimationController.swift; sourceTree = "<group>"; };
 		0E5D06AB1BF8C0340032AED4 /* SearchResultCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchResultCell.xib; sourceTree = "<group>"; };
-		0E5D06AF1BF8CDFE0032AED4 /* SearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchResultCell.swift; path = ../SearchResultCell.swift; sourceTree = "<group>"; };
+		0E5D06AF1BF8CDFE0032AED4 /* SearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		0E5D06B11BF8CE4F0032AED4 /* SearchResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		0E71BE0F1C01AE49000DDCA3 /* UIImageView+DownloadImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+DownloadImage.swift"; sourceTree = "<group>"; };
 		0E71E4DD1C056C50004724BF /* Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
-		0ECC85E01C01D99C002BED09 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = ../DetailViewController.swift; sourceTree = "<group>"; };
+		0ECC85E01C01D99C002BED09 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		0ECC85E21C01DFE5002BED09 /* DimmingPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DimmingPresentationController.swift; sourceTree = "<group>"; };
 		0ECC85E41C01E668002BED09 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		0ED19FE91C00911500A8FB67 /* LoadingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
@@ -46,7 +46,7 @@
 		0EE8F24C1BF2176D003AF6E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0EE8F24E1BF2176D003AF6E3 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		0EE8F2581BF2176D003AF6E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0EFCB82A1BFAD86700A4C388 /* NothingFoundCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NothingFoundCell.xib; path = ../NothingFoundCell.xib; sourceTree = "<group>"; };
+		0EFCB82A1BFAD86700A4C388 /* NothingFoundCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NothingFoundCell.xib; sourceTree = "<group>"; };
 		0EFCB84E1BFAF44900A4C388 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -64,7 +64,6 @@
 		0EE8F2401BF2176D003AF6E3 = {
 			isa = PBXGroup;
 			children = (
-				0E2392971C04505800EFBFFB /* FadeOutAnimationController.swift */,
 				0EE8F24B1BF2176D003AF6E3 /* StoreSearch */,
 				0EE8F24A1BF2176D003AF6E3 /* Products */,
 			);
@@ -87,12 +86,13 @@
 				0E4F466A1C034E7B009081F6 /* BounceAnimationController.swift */,
 				0ECC85E01C01D99C002BED09 /* DetailViewController.swift */,
 				0ECC85E21C01DFE5002BED09 /* DimmingPresentationController.swift */,
+				0E2392971C04505800EFBFFB /* FadeOutAnimationController.swift */,
 				0E4F46681C034073009081F6 /* GradientView.swift */,
 				0E2392951C04214C00EFBFFB /* LandscapeViewController.swift */,
+				0E71E4DD1C056C50004724BF /* Search.swift */,
 				0E5D06B11BF8CE4F0032AED4 /* SearchResult.swift */,
 				0E5D06AF1BF8CDFE0032AED4 /* SearchResultCell.swift */,
 				0EE8F24E1BF2176D003AF6E3 /* SearchViewController.swift */,
-				0E71E4DD1C056C50004724BF /* Search.swift */,
 				0E4F466C1C0359D6009081F6 /* SlideOutAnimationController.swift */,
 				0E71BE0F1C01AE49000DDCA3 /* UIImageView+DownloadImage.swift */,
 				0EFCB84E1BFAF44900A4C388 /* Assets.xcassets */,
