@@ -1,0 +1,8 @@
+/* 
+  InfoPlist.strings
+  StoreSearch
+
+  Created by Yasuhiro on 11/26/2015.
+  Copyright © 2015 yasuhiroyoshida. All rights reserved.
+*/
+CFBundleDisplayName = "ストアサーチ";

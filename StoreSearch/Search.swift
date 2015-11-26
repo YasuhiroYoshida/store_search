@@ -94,11 +94,17 @@ class Search {
   private func urlWithSeachText(searchText: String, category: Category) -> NSURL {
 
     let entityName = category.entityName
+
+    let locale = NSLocale.autoupdatingCurrentLocale()
+    let language = locale.localeIdentifier
+    let countryCode = locale.objectForKey(NSLocaleCountryCode) as! String
+
     let escapedSearchText = searchText.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
 
-    let urlString = String(format: "https://itunes.apple.com/search?term=%@&limit=200&entity=%@", escapedSearchText, entityName)
+    let urlString = String(format: "https://itunes.apple.com/search?term=%@&limit=200&entity=%@&lang=%@&country=%@", escapedSearchText, entityName, language, countryCode)
 
     let url = NSURL(string: urlString)
+    print("URL: \(url!)")
     return url!
   }
 
