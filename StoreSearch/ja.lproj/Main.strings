@@ -1,0 +1,36 @@
+
+/* Class = "UISegmentedControl"; 54B-Et-ZZ1.segmentTitles[0] = "All"; ObjectID = "54B-Et-ZZ1"; */
+"54B-Et-ZZ1.segmentTitles[0]" = "すべて";
+
+/* Class = "UISegmentedControl"; 54B-Et-ZZ1.segmentTitles[1] = "Music"; ObjectID = "54B-Et-ZZ1"; */
+"54B-Et-ZZ1.segmentTitles[1]" = "音楽";
+
+/* Class = "UISegmentedControl"; 54B-Et-ZZ1.segmentTitles[2] = "Software"; ObjectID = "54B-Et-ZZ1"; */
+"54B-Et-ZZ1.segmentTitles[2]" = "ソフト";
+
+/* Class = "UISegmentedControl"; 54B-Et-ZZ1.segmentTitles[3] = "E-books"; ObjectID = "54B-Et-ZZ1"; */
+"54B-Et-ZZ1.segmentTitles[3]" = "電子書籍";
+
+/* Class = "UILabel"; text = "Kind value"; ObjectID = "Bzx-8y-9Ri"; */
+"Bzx-8y-9Ri.text" = "Kind value";
+
+/* Class = "UISearchBar"; placeholder = "App name, artist, song, album, e-book"; ObjectID = "IOK-Xd-Q5W"; */
+"IOK-Xd-Q5W.placeholder" = "App name, artist, song, album, e-book";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "Z6x-mQ-P7f"; */
+"Z6x-mQ-P7f.text" = "Name";
+
+/* Class = "UILabel"; text = "Artist Name"; ObjectID = "ZDg-0F-8ka"; */
+"ZDg-0F-8ka.text" = "Artist Name";
+
+/* Class = "UILabel"; text = "Genre value"; ObjectID = "dU5-xP-GaM"; */
+"dU5-xP-GaM.text" = "Genre value";
+
+/* Class = "UILabel"; text = "Genre:"; ObjectID = "fp6-Yb-rLU"; */
+"fp6-Yb-rLU.text" = "Genre:";
+
+/* Class = "UILabel"; text = "Type: "; ObjectID = "rC1-4Z-bYB"; */
+"rC1-4Z-bYB.text" = "Type: ";
+
+/* Class = "UIButton"; normalTitle = "$9.99"; ObjectID = "wpa-2d-AMU"; */
+"wpa-2d-AMU.normalTitle" = "$9.99";
