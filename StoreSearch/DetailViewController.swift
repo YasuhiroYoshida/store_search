@@ -15,9 +15,17 @@ class DetailViewController: UIViewController {
     case Fade
   }
 
-  var searchResult: SearchResult!
+  var searchResult: SearchResult! {
+    didSet {
+      if isViewLoaded() {
+        updateUI()
+        popupView.hidden = false
+      }
+    }
+  }
   var downloadTask: NSURLSessionDownloadTask?
   var dismissAnimationStyle = AnimationStyle.Fade
+  var isPopup = false
 
   @IBOutlet weak var popupView: UIView!
   @IBOutlet weak var artworkImageView: UIImageView!
@@ -56,16 +64,24 @@ class DetailViewController: UIViewController {
     view.tintColor = UIColor(red: 20/255, green: 160/255, blue: 160/255, alpha: 1)
     popupView.layer.cornerRadius = 10
 
-    let gestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("close"))
-    gestureRecognizer.cancelsTouchesInView = false
-    gestureRecognizer.delegate = self
-    view.addGestureRecognizer(gestureRecognizer)
+    if isPopup {
+      let gestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("close"))
+      gestureRecognizer.cancelsTouchesInView = false
+      gestureRecognizer.delegate = self
+      view.addGestureRecognizer(gestureRecognizer)
+      view.backgroundColor = UIColor.clearColor()
+    } else {
+      view.backgroundColor = UIColor(patternImage: UIImage(named: "LandscapeBackground")!)
+      popupView.hidden = true
+      if let displayName = NSBundle.mainBundle().localizedInfoDictionary?["CFBundleDisplayName"] as? String {
+        title = displayName
+      }
+    }
 
     if searchResult != nil {
       updateUI()
     }
 
-    view.backgroundColor = UIColor.clearColor()
   }
 
   override func didReceiveMemoryWarning() {
