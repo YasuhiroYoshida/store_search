@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MessageUI
 
 class DetailViewController: UIViewController {
 
@@ -89,7 +90,16 @@ class DetailViewController: UIViewController {
     // Dispose of any resources that can be recreated.
   }
 
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "ShowMenu" {
+      let controller = segue.destinationViewController as! MenuViewController
+      controller.delegate = self
+    }
+  }
+
+
   func updateUI() {
+
     nameLabel.text = searchResult.name
     if searchResult.artistName.isEmpty {
       artistNameLabel.text = NSLocalizedString("Unknown", comment: "Localized artistNameLabel: Unknown")
@@ -154,5 +164,29 @@ extension DetailViewController: UIGestureRecognizerDelegate {
 
   func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
     return (touch.view === self.view)
+  }
+}
+
+extension DetailViewController: MenuViewControllerDelegate {
+
+  func menuViewControllerSendSupportEmail(_: MenuViewController) {
+
+    dismissViewControllerAnimated(true) {
+      if MFMailComposeViewController.canSendMail() {
+        let controller = MFMailComposeViewController()
+        controller.setSubject(NSLocalizedString("Support Request", comment: "Email subject"))
+        controller.setToRecipients(["abcs@gmail.com"])
+        self.presentViewController(controller, animated: true, completion: nil)
+        controller.mailComposeDelegate = self
+        controller.modalPresentationStyle = .FormSheet
+      }
+    }
+  }
+}
+
+extension DetailViewController: MFMailComposeViewControllerDelegate {
+
+  func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+    dismissViewControllerAnimated(true, completion: nil)
   }
 }

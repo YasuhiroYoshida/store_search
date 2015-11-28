@@ -180,7 +180,6 @@ class LandscapeViewController: UIViewController {
 
 
     scrollView.contentSize = CGSize(width: CGFloat(numPages) * scrollViewWidth, height: scrollView.bounds.size.height)
-    print("Number of pages: \(numPages)")
 
     pageControl.numberOfPages = numPages
     pageControl.currentPage = 0

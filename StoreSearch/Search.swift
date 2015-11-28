@@ -78,7 +78,6 @@ class Search {
               self.state = .Results(searchResults)
             }
             success = true
-
         }
 
         dispatch_async(dispatch_get_main_queue()) {
@@ -172,7 +171,7 @@ class Search {
       searchResult.price = price
     }
 
-    if let genre = dictionary["genre"] as? String {
+    if let genre = dictionary["primaryGenreName"] as? String {
       searchResult.genre = genre
     }
 
